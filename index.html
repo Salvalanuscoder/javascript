@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="estilos.css">
+	<link rel="stylesheet" type="text/css" href="assets/styles/custom-style.css"/>
+	<title>Sitio de peliculas</title>
+
+</head>
+
+<body>
+
+	<header>
+		<h2>Sitio de peliculas</h2>
+		<div class="container-icon">
+			<div class="container-cart-icon">
+
+				<div class="count-products">
+					<span id="contador-productos">0</span>
+				</div>
+				<div class="icon-cart"><img src="./recursos/white.png" alt="carrito.png"></div>
+			</div>
+
+
+
+			<div class="container-cart-products hidden-cart">
+				<div class="row-product">
+					<div class="peliculas">
+						<div class="info-cart-product">
+							<span class="cant-producto-carrito">
+								1
+							</span>
+							<p class="titulo-producto-carrito">John Wick 4</p>
+							<span class="precio-producto-carrito">$200</span>
+
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+								stroke="currentColor" class="icon-close">
+								<path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+							</svg>
+						</div>
+					</div>
+				</div>
+				<div class="pelicula">
+					<div class="container-cart-product">
+
+					</div>
+				</div>
+
+				<div class="cart-total">
+					<h3>Total:</h3>
+					<span class="total-pagar">$700</span>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="content">
+		<!-- Contenido del área central -->
+		<div class="contenedor" id="contenedor"></div>
+	</div>
+
+	<div class="paginacion">
+		<button id="btnAnterior">Anterior</button>
+		<button id="btnSiguiente">Siguiente</button>"
+	</div>
+	<script src="./js/app.js"></script>
+	<script src="./js/carrito.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,263 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/**/
+body {
+	font-family: 'Montserrat', sans-serif;
+	background: #e0e0e0;
+	color: #1d1d1d;
+}
+
+/**/
+.contenedor {
+	width: 90%;
+	max-width: 1000px;
+	margin: 40px auto 100px auto;
+
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 40px;
+}
+
+/**/
+.contenedor .pelicula {
+	text-align: center;
+}
+
+/**/
+.contenedor .pelicula .titulo {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+/*img de pelicula*/
+.contenedor .pelicula .poster {
+	width: 100%;
+	margin-bottom: 10px;
+	object-fit: cover;
+}
+
+/*footer*/
+.paginacion {
+	position: fixed;
+	bottom: 0;
+	background: #100a1f;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	padding: 10px;
+}
+
+/*estilo boton de siguiente y anterior*/
+.paginacion button {
+	cursor: pointer;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	height: 50px;
+	width: 200px;
+	background: #241744;
+	color: #fff;
+	border-radius: 100px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	transition: .3s ease all;
+}
+
+/*estilo de hover boton de siguiente y anterior*/
+.paginacion button:hover {
+	background: #137c32;
+}
+
+/*border y fondo del card*/
+.pelicula {
+	background-color: aqua;
+
+	overflow: hidden;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 10px;
+	/* border-color: blue; */
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+
+
+	background-color: white;
+	border: solid 1px transparent;
+}
+
+.pelicula:hover {
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+}
+
+
+.poster {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+	border-radius: 10px 10px 0 0;
+	transition: all .5s;
+	overflow: hidden;
+}
+
+/*el poster de la pelicula*/
+.poster:hover {
+	transform: scale(1.1);
+}
+
+/*contiene titulo, precio y boton de compra*/
+.info-product {
+	padding: 15px 30px;
+	line-height: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.precio{
+	font-size: 18px;
+	font-weight: 900;
+}
+.boton-precio{
+border: none;
+background: none;
+background-color: #000;
+color: #fff;
+padding: 15px 10px;
+cursor: pointer;
+}
+.icon-addCart{
+	background-color: #000;
+} 
+
+header {
+	margin: 0px;
+	padding: 35px;
+	background-color: #100a1f;
+	height: 60px;
+
+	display: flex;
+	/* justify-content: flex-start;*/
+	align-items: center;
+	align-content: center;
+	justify-content: space-between;
+
+}
+
+.container-icon{
+	position: relative; 
+}
+.count-products{
+	position: absolute;
+	top: 55%;
+	right: 0;
+
+	background-color: #000;
+	color: #fff;
+
+	width: 25px;
+	height: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+}
+
+.container-cart-products{
+	position: absolute;
+	top: 120%;
+	right: 0;
+
+	background-color: #fff;
+	width: 400px;
+	z-index: 1;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+	border-radius: 10px;
+}
+
+.cart-product{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30px;
+
+	border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+}
+/*contenedor de unidad,titulo, precio y boton de close*/
+.info-cart-product{
+	display: flex;
+	justify-content: space-between;
+	flex: 0.8;
+}
+
+.cant-titulo-carrito{
+	font-size: 20px;
+}
+.precio-producto-carrito{
+	font-weight: 700;
+	font-size: 20px;
+	margin-left: 10px;
+}
+.cant-producto-carrito{
+	font-weight: 400px;
+	font-size: 20px;
+	width:25px;
+	height:25px;
+}
+
+/*icono de cerrar*/ 
+.icon-close{
+	width:25px;
+	height:25px;
+}
+.icon-close:hover{
+	stroke:red;
+	cursor:pointer;
+}
+.cart-total{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 0;
+	gap: 20px;
+}
+
+.cart-total h3{
+	font-size: 20px;
+	font-weight: 700;
+}
+.total-pagar{
+	font-size: 20px;
+	font-weight: 900;
+}
+.hidden-cart{
+	display: none;
+}
+h2 {
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+	justify-self: center;
+
+}
+/*icono de carrito arriba a la derecha*/
+.icon-cart {
+	
+	border-radius: 99%;
+	cursor: pointer;
+	padding: 10px;
+	display: flex;
+	justify-self: center;
+	align-items: center;
+	transition: all 0.3s ease-in-out;
+	background: #241744;
+	
+}
+
+.icon-cart:hover {
+	background: #137c32;
+}
