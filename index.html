@@ -9,7 +9,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="estilos.css">
-	<link rel="stylesheet" type="text/css" href="assets/styles/custom-style.css"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.min.css">
 	<title>Sitio de peliculas</title>
 
 </head>
@@ -30,22 +30,7 @@
 
 
 			<div class="container-cart-products hidden-cart">
-				<div class="row-product">
-					<div class="peliculas">
-						<div class="info-cart-product">
-							<span class="cant-producto-carrito">
-								1
-							</span>
-							<p class="titulo-producto-carrito">John Wick 4</p>
-							<span class="precio-producto-carrito">$200</span>
-
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-								stroke="currentColor" class="icon-close">
-								<path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-							</svg>
-						</div>
-					</div>
-				</div>
+				
 				<div class="pelicula">
 					<div class="container-cart-product">
 
@@ -54,9 +39,12 @@
 
 				<div class="cart-total">
 					<h3>Total:</h3>
-					<span class="total-pagar">$700</span>
+					<span class="total-compra"></span>
+					<!-- <button class="btn-comprar">Comprar</button> -->
 				</div>
+				
 			</div>
+			
 		</div>
 	</header>
 
@@ -69,8 +57,11 @@
 		<button id="btnAnterior">Anterior</button>
 		<button id="btnSiguiente">Siguiente</button>"
 	</div>
-	<script src="./js/app.js"></script>
-	<script src="./js/carrito.js"></script>
+<script src="./js/app.js"></script>
+<script src="./js/carrito.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 
 </html>

@@ -181,10 +181,10 @@ header {
 }
 
 .cart-product{
-	display: flex;
+	
 	justify-content: space-between;
 	align-items: center;
-	padding: 30px;
+	
 
 	border-bottom: 1px solid rgba(0, 0, 0, 0.20);
 }
@@ -193,27 +193,31 @@ header {
 	display: flex;
 	justify-content: space-between;
 	flex: 0.8;
+	margin-right: 10px;
+	margin-left: 25px;
 }
-
-.cant-titulo-carrito{
+.cant-producto-carrito{
+	font-weight: 400px;
 	font-size: 20px;
+	width:50px;
+	height:25px;
+}
+.titulo-producto-carrito{
+	font-size: 20px;
+	margin-right: 20px;
 }
 .precio-producto-carrito{
 	font-weight: 700;
 	font-size: 20px;
 	margin-left: 10px;
 }
-.cant-producto-carrito{
-	font-weight: 400px;
-	font-size: 20px;
-	width:25px;
-	height:25px;
-}
+
 
 /*icono de cerrar*/ 
 .icon-close{
 	width:25px;
 	height:25px;
+	margin-left: 20px;
 }
 .icon-close:hover{
 	stroke:red;

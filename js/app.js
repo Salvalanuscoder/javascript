@@ -38,7 +38,7 @@ const cargarPeliculas = async () => {
             <div class="info-product">
             <h3 class="titulo">${pelicula.title}</h3>
             <p class="precio">$200</p>
-            <button class="boton-precio">Añadir al carrito</button>
+            <button class="boton-precio">comprar</button>
             <div class="icon-addCart"><img src="./recursos/add.png" alt="addcart.png">
             </div>
             </div>
