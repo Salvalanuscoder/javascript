@@ -217,24 +217,25 @@ btnComprar.addEventListener('click', () => {
         cancelButtonText: 'Cancelar',
     }).then((result) => {
         if (result.isConfirmed) {
-            cartProducts = {}; // Vaciar el carrito al confirmar la compra
+            Object.keys(cartProducts).forEach((title) => {
+                delete cartProducts[title];
+            });
+            //confirmar la compra
             updateCart();
             Swal.fire('Compra realizada', '¡Gracias por tu compra!', 'success');
         }
     });
 });
-
-// Agrega el botón "Comprar" al contenedor del carrito
-containerCartProducts.appendChild(btnComprar);
-
 // Evento 'DOMContentLoaded' para los botones de precio
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const botonesPrecio = document.querySelectorAll('.boton-precio');
-   
+    console.log(botonesPrecio);
     botonesPrecio.forEach(boton => {
         boton.addEventListener('click', () => {
-             console.log(comprado)
-             Swal.fire({
+            // Aquí debes definir y asignar el valor correcto a la variable 'comprado' antes de usarla
+            const comprado = true;
+
+            Swal.fire({
                 title: 'Confirmar compra',
                 text: '¿Estás seguro de que deseas realizar esta compra?',
                 icon: 'warning',
@@ -252,9 +253,10 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
+
+    // Agrega el botón "Comprar" al contenedor del carrito
+    containerCartProducts.appendChild(btnComprar);
 });
-
-
 
 
 

@@ -265,3 +265,18 @@ h2 {
 .icon-cart:hover {
 	background: #137c32;
 }
+
+.btn-comprar {
+	
+	border: none;
+background: none;
+background-color: #000;
+color: #fff;
+padding: 10px 10px;
+cursor: pointer;
+margin-left: 150px;
+margin-bottom: 5px;
+}
+.button.btn-comprar{
+	background-color: #000;
+}
