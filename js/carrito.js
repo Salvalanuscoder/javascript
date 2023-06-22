@@ -157,7 +157,7 @@ btnComprar.addEventListener('click', () => {
     // Verificar si el carrito está vacío
     if (Object.keys(cartProducts).length === 0) {
         Swal.fire('Carrito vacío', 'Por favor, selecciona al menos una película antes de realizar la compra', 'error');
-        return; // Detener la ejecución del código
+        return; 
     }
 
     // Muestra el SweetAlert para confirmar la compra
@@ -171,9 +171,7 @@ btnComprar.addEventListener('click', () => {
     }).then((result) => {
         if (result.isConfirmed) {
             Object.keys(cartProducts).forEach((title) => {
-                // Puedes realizar las acciones necesarias para completar la compra de cada producto aquí
-                // Por ejemplo, enviar una solicitud al servidor para procesar el pago y registrar la compra
-                // ...
+               
             });
 
             // Limpiar el carrito después de realizar la compra
@@ -188,7 +186,7 @@ btnComprar.addEventListener('click', () => {
 // Agrega el botón de compra al contenedor principal del carrito
 containerCartProducts.appendChild(btnComprar);
 
-// Actualizar el carrito al cargar la página
+// Actualizar el carrito 
 updateCart();
 
 
