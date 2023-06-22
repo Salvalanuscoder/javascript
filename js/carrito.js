@@ -1,73 +1,17 @@
-// const btnCart = document.querySelector('.container-cart-icon');
-// const containerCartProducts = document.querySelector('.container-cart-products');
-// const contadorProductos = document.getElementById('contador-productos');
-// let totalProductos = 0;
-
-// btnCart.addEventListener('click', () => {
-//   containerCartProducts.classList.toggle('hidden-cart');
-// });
-
-// const cartProductContainer = document.querySelector('.container-cart-product');
-
-// // Obtener el contenedor principal de las películas
-// const moviesContainer = document.getElementById('contenedor');
-
-// // Asignar el evento de clic al contenedor principal
-// moviesContainer.addEventListener('click', (e) => {
-//   // Verificar si el clic ocurrió en el botón "Añadir al carrito"
-//   if (e.target.classList.contains('icon-addCart') || e.target.parentElement.classList.contains('icon-addCart')) {
-//     // Obtener la película seleccionada
-//     const peliculaElement = e.target.closest('.pelicula');
-//     if (peliculaElement) {
-//       const productTitle = peliculaElement.querySelector('.titulo');
-//       if (productTitle) {
-//         const pelicula = productTitle.textContent;
-//         console.log('Película seleccionada:', pelicula);
-
-//         // Crea el elemento para mostrar en el carrito
-//         const cartProduct = document.createElement('div');
-//         cartProduct.classList.add('cart-product');
-//         cartProduct.innerHTML = `
-//           <div class="info-cart-product">
-//             <span class="cant-producto-carrito">1</span>
-//             <p class="titulo-producto-carrito">${pelicula}</p>
-//             <span class="precio-producto-carrito">$200</span>
-//             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="icon-close">
-//               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-//             </svg>
-//           </div>
-//         `;
-
-//         // Agrega el elemento al contenedor del carrito
-//         cartProductContainer.appendChild(cartProduct);
-
-//         // Incrementa el contador de productos y actualiza el valor visualmente
-//         totalProductos++;
-//         contadorProductos.textContent = totalProductos;
-//       } else {
-//         console.log('No se encontró el elemento del título de la película');
-//       }
-//     } else {
-//       console.log('No se encontró el elemento de la película');
-//     }
-//   }
-// });
-
-
-
-
-
 const btnCart = document.querySelector('.container-cart-icon');
 const containerCartProducts = document.querySelector('.container-cart-products');
 const contadorProductos = document.getElementById('contador-productos');
 let totalProductos = 0;
+
+// Recuperar los productos del carrito desde localStorage (si existen)
+let cartProducts = localStorage.getItem('cartProducts');
+cartProducts = cartProducts ? JSON.parse(cartProducts) : {};
 
 btnCart.addEventListener('click', () => {
     containerCartProducts.classList.toggle('hidden-cart');
 });
 
 const cartProductContainer = document.querySelector('.container-cart-product');
-const cartProducts = {}; // Objeto para almacenar los productos en el carrito
 
 // Obtener el contenedor principal de las películas
 const moviesContainer = document.getElementById('contenedor');
@@ -113,6 +57,9 @@ const updateCart = () => {
     // Limpiar el contenido actual del carrito
     cartProductContainer.innerHTML = '';
 
+    // Almacenar los productos del carrito en localStorage
+    localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+
     // Función para eliminar un producto del carrito
     const removeProduct = (title) => {
         delete cartProducts[title];
@@ -129,6 +76,7 @@ const updateCart = () => {
             }
         }
         updateCart();
+        localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
     };
 
     // Función para aumentar la cantidad de un producto en el carrito
@@ -200,13 +148,18 @@ const updateCart = () => {
     }
 };
 
-// Obtén una referencia al botón "Comprar"
+// Agrega el evento click al botón "Comprar"
 const btnComprar = document.createElement('button');
 btnComprar.classList.add('btn-comprar');
 btnComprar.textContent = 'Comprar';
 
-// Agrega el evento click al botón "Comprar"
 btnComprar.addEventListener('click', () => {
+    // Verificar si el carrito está vacío
+    if (Object.keys(cartProducts).length === 0) {
+        Swal.fire('Carrito vacío', 'Por favor, selecciona al menos una película antes de realizar la compra', 'error');
+        return; // Detener la ejecución del código
+    }
+
     // Muestra el SweetAlert para confirmar la compra
     Swal.fire({
         title: 'Confirmar compra',
@@ -218,45 +171,26 @@ btnComprar.addEventListener('click', () => {
     }).then((result) => {
         if (result.isConfirmed) {
             Object.keys(cartProducts).forEach((title) => {
-                delete cartProducts[title];
+                // Puedes realizar las acciones necesarias para completar la compra de cada producto aquí
+                // Por ejemplo, enviar una solicitud al servidor para procesar el pago y registrar la compra
+                // ...
             });
-            //confirmar la compra
+
+            // Limpiar el carrito después de realizar la compra
+            cartProducts = {};
             updateCart();
-            Swal.fire('Compra realizada', '¡Gracias por tu compra!', 'success');
+
+            Swal.fire('¡Compra realizada!', 'La compra se ha realizado con éxito', 'success');
         }
     });
 });
-// Evento 'DOMContentLoaded' para los botones de precio
-document.addEventListener('DOMContentLoaded', function() {
-    const botonesPrecio = document.querySelectorAll('.boton-precio');
-    console.log(botonesPrecio);
-    botonesPrecio.forEach(boton => {
-        boton.addEventListener('click', () => {
-            // Aquí debes definir y asignar el valor correcto a la variable 'comprado' antes de usarla
-            const comprado = true;
 
-            Swal.fire({
-                title: 'Confirmar compra',
-                text: '¿Estás seguro de que deseas realizar esta compra?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Comprar',
-                cancelButtonText: 'Cancelar'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire('¡Compra realizada!', 'La compra se ha realizado exitosamente.', 'success');
-                } else {
-                    Swal.fire('Compra cancelada', 'No se ha realizado ninguna compra.', 'info');
-                }
-            });
-        });
-    });
+// Agrega el botón de compra al contenedor principal del carrito
+containerCartProducts.appendChild(btnComprar);
 
-    // Agrega el botón "Comprar" al contenedor del carrito
-    containerCartProducts.appendChild(btnComprar);
-});
+// Actualizar el carrito al cargar la página
+updateCart();
+
 
 
 
